@@ -21,9 +21,10 @@ We require high-intelligence models to ensure data accuracy.
 
 ## 🤝 How to Contribute
 
-We have made it incredibly easy to help. You just need an API key and a computer.
+We have made it incredibly easy to help. We even have a **Dashboard App** that does the work for you.
 
-👉 **[Read the Contributing Guide](CONTRIBUTING.md)** to get started in 5 minutes.
+👉 **[Read the Contributing Guide](CONTRIBUTING.md)** to download the Dashboard.
+👉 **[Join the Community](COMMUNITY.md)** for help.
 
 ## 📜 License
 

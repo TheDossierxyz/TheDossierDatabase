@@ -30,17 +30,15 @@ if not exist ".env" (
     echo [INFO] Creating .env file from template...
     type .env.example > .env
     echo [IMPORTANT] Please open .env and add your API Key!
+    notepad .env
 ) else (
     echo [INFO] .env file already exists.
 )
 
 echo.
 echo ===================================================
-echo   Setup Complete!
+echo   Setup Complete! Launching Dashboard...
 echo ===================================================
 echo.
-echo To run the miner:
-echo 1. Open .env and paste your API key.
-echo 2. Run: venv\Scripts\python src\dossier_miner.py --batch BATCH_FOLDER
-echo.
-pause
+
+start "" "venv\Scripts\pythonw.exe" "src\dashboard.py"

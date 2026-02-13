@@ -12,62 +12,53 @@ Thank you for helping us build the world's most comprehensive community-driven d
 
 2.  **Run Setup**:
     Double-click `setup.bat`.
-    *   This will install all dependencies.
-    *   It will create a `.env` file for you.
+    *   This installs everything.
+    *   It creates your `.env` file.
 
 3.  **Add Your Keys**:
-    Open the `.env` file in Notepad. You must provide a key for a **high-quality model**.
-    
-    *   **Gemini 2.0 Flash (Recommended)**: [Get Key](https://aistudio.google.com/app/apikey)
-    *   **OpenAI GPT-4o**: [Get Key](https://platform.openai.com/api-keys)
-    *   **Claude 3.5 Sonnet**: [Get Key](https://console.anthropic.com/)
-    
-    Update the `MODEL_NAME` in .env if you are not using the default (gemini-2.0-flash).
+    Open `.env` in Notepad. Add your **Gemini 2.0**, **GPT-4o**, or **Claude** key.
 
 ---
 
-## 🛠️ How to Mine Data
+## 🖥️ The Dashboard (Easiest Way)
 
-### 1. ✋ Claim Your Batch (IMPORTANT)
-To stop two people from doing the same work, you must "check out" a batch first.
+We built a custom app to handle the hard stuff for you.
 
+**To Launch:**
+Double-click `setup.bat` again (it will launch the dashboard after checking tools), or run:
 ```bash
-venv\Scripts\activate
-# Replace 001 with the folder name you want to work on
+venv\Scripts\python src/dashboard.py
+```
+
+### How to use the Dashboard:
+1.  **Enter Batch ID**: Pick a folder name from `data/raw_batches` (e.g. `001`).
+2.  **Click "✋ Claim Batch"**: This locks it so nobody else takes it.
+3.  **Click "⛏️ Start Mining"**: The AI will start reading files. Watch the logs!
+4.  **Click "🚀 Submit Work"**: Sends your data to the database.
+
+---
+
+## 🤓 Advanced (Command Line)
+
+If you prefer the black terminal screen:
+
+### 1. Claim
+```bash
 python src/claim_batch.py --batch 001
+git pull && git add claims/ && git commit -m "Claim 001" && git push
 ```
 
-If it says **[SUCCESS]**, you must verify the lock immediately:
-```bash
-git pull origin main  # Get latest claims
-git add claims/
-git commit -m "Claim batch 001"
-git push origin main
-```
-*If the push fails, someone else claimed it first. Pull again and pick another batch.*
-
-### 2. Run the Miner
-Once you have successfully pushed your claim, run the miner:
-
+### 2. Mine
 ```bash
 python src/dossier_miner.py --batch 001
 ```
 
-### 3. Submit Your Work
-Push your processed data to GitHub and open a Pull Request!
+### 3. Submit
 ```bash
 git add data/processed
-git commit -m "Processed batch 001"
-git push origin main
+git commit -m "Processed 001"
+git push
 ```
 
----
-
-## ✅ The Rules (Automated Validation)
-
-We use an automated "Bouncer" script. Your submission **will be rejected** if:
-1.  **Invalid JSON**: The format must be perfect.
-2.  **Hallucinations**: Every connection must have a `quote` that physically exists in the document text.
-3.  **Broken Links**: You cannot link to an Entity ID that doesn't exist in the `entities` list.
-
-Thank you for contributing!
+## Need Help?
+Check out [COMMUNITY.md](COMMUNITY.md) for Discord/Telegram links!
