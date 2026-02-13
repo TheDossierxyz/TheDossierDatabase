@@ -1,0 +1,53 @@
+{
+    "meta": {
+        "doc_date": "2017-05-30",
+        "doc_type": "Email",
+        "subject": "Re: Snacks at noon with Maxim and his mom?",
+        "confidence": "High",
+        "processed_by": "ShadowCoder"
+    },
+    "entities": [
+        {
+            "id": "e1",
+            "name": "Lesley Groff",
+            "type": "PERSON"
+        },
+        {
+            "id": "e2",
+            "name": "[REDACTED]",
+            "type": "PERSON",
+            "note": "Extracted from blacked-out 'To:' field"
+        },
+        {
+            "id": "e3",
+            "name": "Maxim",
+            "type": "PERSON"
+        },
+        {
+            "id": "e4",
+            "name": "Maxim's mom",
+            "type": "PERSON",
+            "note": "Implied relative"
+        }
+    ],
+    "connections": [
+        {
+            "from": "e1",
+            "to": "e2",
+            "type": "EMAIL_SENT",
+            "quote": "Sent: Tue 5/30/2017 12:05 PM \n To: [BLACKED OUT] \n From: Lesley Groff"
+        },
+        {
+            "from": "e1",
+            "to": "e3",
+            "type": "MENTIONED",
+            "quote": "appt today with Maxim"
+        },
+        {
+            "from": "e1",
+            "to": "e4",
+            "type": "MENTIONED",
+            "quote": "and his mom?"
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "meta",
+        "entities",
+        "connections"
+    ],
+    "properties": {
+        "meta": {
+            "type": "object",
+            "required": [
+                "doc_date",
+                "doc_type",
+                "subject",
+                "confidence",
+                "processed_by"
+            ],
+            "properties": {
+                "doc_date": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "doc_type": {
+                    "type": "string",
+                    "enum": [
+                        "Email",
+                        "Flight Log",
+                        "Meeting Note",
+                        "Report",
+                        "Other"
+                    ]
+                },
+                "subject": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "confidence": {
+                    "type": "string",
+                    "enum": [
+                        "High",
+                        "Medium",
+                        "Low"
+                    ]
+                },
+                "processed_by": {
+                    "type": "string",
+                    "description": "Contributor handle from .env"
+                }
+            }
+        },
+        "entities": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "name",
+                    "type"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "PERSON",
+                            "ORGANIZATION",
+                            "LOCATION",
+                            "EVENT",
+                            "OTHER"
+                        ]
+                    },
+                    "note": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "connections": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "from",
+                    "to",
+                    "type",
+                    "quote"
+                ],
+                "properties": {
+                    "from": {
+                        "type": "string",
+                        "description": "Must match an entity ID"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": "Must match an entity ID"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "EMAIL_SENT",
+                            "FLIGHT",
+                            "MET_WITH",
+                            "MENTIONED",
+                            "ASSOCIATED_WITH",
+                            "TRANSACTION",
+                            "LEGAL_ACTION"
+                        ]
+                    },
+                    "quote": {
+                        "type": "string",
+                        "description": "Exact text from source document proving this connection"
+                    }
+                }
+            }
+        }
+    }
+}

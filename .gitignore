@@ -1,0 +1,24 @@
+# Environment Variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Project Data
+data/raw_batches/*
+!data/raw_batches/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# IDEs
+.vscode/
+.idea/
