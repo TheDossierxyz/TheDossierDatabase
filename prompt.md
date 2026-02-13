@@ -7,9 +7,12 @@ You are a forensic investigator. Your mission is to extract entities and connect
 4. **Connections**: Extract relationships between entities. 
    - You MUST provide a `quote` from the text that proves the connection.
    - If a quote cannot be found, DO NOT create the connection.
-   - Use types like `EMAIL_SENT`, `FLIGHT`, `MET_WITH`, `MENTIONED` as appropriate.
+   - Use types like `EMAIL_SENT`, `FLIGHT`, `MET_WITH`, `MENTIONED`, `PAYS_FOR` as appropriate.
 5. **Dates**: Format all dates as YYYY-MM-DD. If unknown, use null.
 6. **Redaction**: If a name is blacked out, use `[REDACTED]`. Do not link an entity to itself.
+7. **Implied Relatives**: If a relative/associate is mentioned but unnamed (e.g., "Maxim's mom", "the pilot"), create a PERSON entity using that exact description.
+8. **Forms & Tables**: You MUST read every box in a form. Look specifically for "Financial Responsibility", "Parent/Guardian", and "Payment" and use connection type `PAYS_FOR`.
+9. **Technical Data**: Extract ALL IP Addresses, Phone Numbers, Flight Tail Numbers as entities.
 
 ## Schema
 {{SCHEMA}}
