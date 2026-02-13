@@ -13,12 +13,15 @@ Our mission is to convert unstructured documents (PDFs, emails, reports) into a 
 
 ## 🤖 Supported AI Models
 
-*   **Google Gemini 1.5 Flash** (Recommended - Fast & Free Tier available)
-*   **OpenAI GPT-4o** (Supported via API)
+We require high-intelligence models to ensure data accuracy.
+
+*   **Google Gemini 2.0 Flash** (Default)
+*   **OpenAI GPT-4o**
+*   **Anthropic Claude 3.5 Sonnet**
 
 ## 🤝 How to Contribute
 
-We have made it incredibly easy to help. You don't need to be a coder. You just need an API key and a computer.
+We have made it incredibly easy to help. You just need an API key and a computer.
 
 👉 **[Read the Contributing Guide](CONTRIBUTING.md)** to get started in 5 minutes.
 

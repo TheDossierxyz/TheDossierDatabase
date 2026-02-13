@@ -16,40 +16,48 @@ Thank you for helping us build the world's most comprehensive community-driven d
     *   It will create a `.env` file for you.
 
 3.  **Add Your Keys**:
-    Open the `.env` file in Notepad and paste your API key.
-    *   **Gemini (Free)**: [Get Key Here](https://aistudio.google.com/app/apikey)
-    *   **OpenAI**: [Get Key Here](https://platform.openai.com/api-keys)
-    *   Also add your `CONTRIBUTOR_HANDLE` so we can credit you!
+    Open the `.env` file in Notepad. You must provide a key for a **high-quality model**.
+    
+    *   **Gemini 2.0 Flash (Recommended)**: [Get Key](https://aistudio.google.com/app/apikey)
+    *   **OpenAI GPT-4o**: [Get Key](https://platform.openai.com/api-keys)
+    *   **Claude 3.5 Sonnet**: [Get Key](https://console.anthropic.com/)
+    
+    Update the `MODEL_NAME` in .env if you are not using the default (gemini-2.0-flash).
 
 ---
 
 ## 🛠️ How to Mine Data
 
-### 1. Claim a Batch
-Check the `data/raw_batches` folder. Pick a subfolder that hasn't been processed yet.
-
-### 2. Run the Miner
-Open your terminal (Command Prompt or PowerShell) and run:
+### 1. ✋ Claim Your Batch (IMPORTANT)
+To stop two people from doing the same work, you must "check out" a batch first.
 
 ```bash
-# Activate the environment (if not already active)
 venv\Scripts\activate
-
-# Run the miner on your specific batch folder
-python src/dossier_miner.py --batch my_batch_folder_name
+# Replace 001 with the folder name you want to work on
+python src/claim_batch.py --batch 001
 ```
 
-The script will:
-*   Read each file in the batch.
-*   Extract entities and connections using the AI.
-*   Validate the output against our strict schema.
-*   Save the clean JSON to `data/processed/`.
+If it says **[SUCCESS]**, you must verify the lock immediately:
+```bash
+git pull origin main  # Get latest claims
+git add claims/
+git commit -m "Claim batch 001"
+git push origin main
+```
+*If the push fails, someone else claimed it first. Pull again and pick another batch.*
+
+### 2. Run the Miner
+Once you have successfully pushed your claim, run the miner:
+
+```bash
+python src/dossier_miner.py --batch 001
+```
 
 ### 3. Submit Your Work
-Push your changes to GitHub and open a Pull Request!
+Push your processed data to GitHub and open a Pull Request!
 ```bash
 git add data/processed
-git commit -m "Processed batch my_batch_folder_name"
+git commit -m "Processed batch 001"
 git push origin main
 ```
 
