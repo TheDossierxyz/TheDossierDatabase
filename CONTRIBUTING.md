@@ -16,7 +16,18 @@ Thank you for helping us build the world's most comprehensive community-driven d
     *   It creates your `.env` file.
 
 3.  **Add Your Keys**:
-    Open `.env` in Notepad. Add your **Gemini 2.0**, **GPT-4o**, or **Claude** key.
+    Open the `.env` file in Notepad. You must provide a key for a **high-quality model**.
+    
+    ### 🧠 AI Model Report Card
+    | Model | Cost | Vision (PDFs/Images) | Logic/Reasoning | Best For... |
+    | :--- | :--- | :--- | :--- | :--- |
+    | **Gemini 2.0 Flash** | **FREE** | ⭐⭐⭐⭐⭐ (Native) | ⭐⭐⭐⭐ | **Most Contributors**. It can "see" PDF pages directly. |
+    | **GPT-4o** | $$$ | ⭐⭐⭐ (Text Only via API) | ⭐⭐⭐⭐⭐ | Complex reasoning, but expensive. |
+    | **Claude 3.5 Sonnet** | $$ | ⭐⭐⭐ (Text Only via API) | ⭐⭐⭐⭐⭐ | Excellent writer, great for extracting names. |
+    
+    *Update the `MODEL_NAME` in your `.env` file to switch models.*
+    
+    **CRITICAL**: Add your `CONTRIBUTOR_HANDLE` (e.g., `ShadowCoder`) to the file. This is how you get credit on the website!
 
 ---
 
@@ -30,7 +41,22 @@ Double-click `setup.bat` again (it will launch the dashboard after checking tool
 venv\Scripts\python src/dashboard.py
 ```
 
-### How to use the Dashboard:
+### 🛠️ How to Mine Data
+
+### 0. 🎓 The Training Ground (Batch 000)
+**First time? Start here.**
+We created a "Challenge Batch" (000) so you can test your setup.
+
+1.  Run the miner on Batch 000:
+    ```bash
+    python src/dossier_miner.py --batch 000
+    ```
+2.  Check the output in `data/processed/test_document.json`.
+3.  **Did it find "The Pilot"?** Did it describe the "Black Book"?
+4.  Compare your result with the community in Discord!
+
+### 1. ✋ Claim Your Batch (IMPORTANT)
+To stop two people from doing the same work, you must "check out" a batch first.
 1.  **Enter Batch ID**: Pick a folder name from `data/raw_batches` (e.g. `001`).
 2.  **Click "✋ Claim Batch"**: This locks it so nobody else takes it.
 3.  **Click "⛏️ Start Mining"**: The AI will start reading files. Watch the logs!
